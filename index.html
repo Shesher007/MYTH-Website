@@ -1,148 +1,311 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MYTH | Industry-Grade Autonomous AI Cybersecurity Agent</title>
-    <meta name="description" content="MYTH: The professional AI agent for cybersecurity. 672+ tools, real-time scanning, and zero-dependency native performance.">
+    <title>MYTH | Sovereign AI Cybersecurity Agent</title>
+    <meta name="description"
+        content="The professional-grade autonomous AI agent for offensive and defensive security. 672+ tactical tools with a zero-dependency local architecture.">
+    <!-- Premium Typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <!-- Lucide icons via CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
 </head>
+
 <body>
 
+    <div class="bg-engine"></div>
+    <div class="grid-field"></div>
+
     <nav>
-        <div class="logo">⌬ <span>MYTH</span></div>
-        <div class="nav-links">
-            <a href="#features">Features</a>
-            <a href="#downloads">Downloads</a>
-            <a href="#docs">Documentation</a>
+        <div class="container">
+            <a href="#" class="logo">⌬ <span>MYTH</span></a>
+            <div class="hero-actions" style="margin-bottom:0; gap:30px;">
+                <a href="#capabilities"
+                    style="color:var(--text-dim); text-decoration:none; font-weight:600;">Capabilities</a>
+                <a href="#titan-viz" style="color:var(--text-dim); text-decoration:none; font-weight:600;">Dashboard</a>
+                <a href="#downloads" style="color:var(--text-dim); text-decoration:none; font-weight:600;">Downloads</a>
+            </div>
+            <a href="#downloads" class="btn btn-primary" style="padding:12px 28px; font-size:0.9rem;">Deploy Agent <i
+                    data-lucide="zap" style="width:16px;"></i></a>
         </div>
-        <a href="#downloads" class="btn-primary">Get MYTH</a>
     </nav>
 
-    <header class="hero">
-        <span class="section-tag">Version 1.1.0 is Live</span>
-        <h1>The <span class="gradient-text">Future</span> of Autonomous Cybersecurity</h1>
-        <p>MYTH is an industry-grade AI agent with 672+ tactical security tools, real-time vulnerability scanning, and an ultra-secure local architecture.</p>
-        <div class="hero-actions">
-            <a href="#downloads" class="btn-primary">Download for Free</a>
-        </div>
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="badge">Titan Edition — Industrial Security</div>
+                <h1 class="reveal">Autonomous <br><span
+                        style="background: linear-gradient(90deg, #00f2ff, #7000ff); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">Sovereign</span>
+                    Agent</h1>
+                <p class="reveal">The professional-grade tactical core. Powered by an autonomous reasoning engine
+                    controlling 672+ industrial tools. 100% Local. 0% Cloud. Pure Persistence.</p>
 
-        <div class="hero-mockup">
-            <div class="glass-card-mockup">
-                <!-- Image or visual representation -->
-                <div style="position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); opacity:0.3; font-size:10rem;">⌬</div>
-            </div>
-        </div>
-    </header>
+                <div class="hero-actions reveal">
+                    <a href="#downloads" class="btn btn-primary">Download v1.1.0 Launcher</a>
+                    <a href="#titan-viz" class="btn btn-outline" onclick="simulateMission()">Connect Local Agent</a>
+                </div>
 
-    <section id="features" class="features">
-        <span class="section-tag text-center" style="display:block; text-align:center;">Capabilities</span>
-        <h2 style="text-align:center; font-size:3rem; margin-top:10px;">Hardened to the <span class="gradient-text">Core</span></h2>
-        
-        <div class="features-grid">
-            <div class="feature-card glass">
-                <div class="feature-icon">🛡️</div>
-                <h3>672+ Tactical Tools</h3>
-                <p>Integrated access to industry-standard tools like Nuclei, Nmap, and Metasploit, orchestrated by an autonomous AI agent.</p>
-            </div>
-            <div class="feature-card glass">
-                <div class="feature-icon">🧠</div>
-                <h3>In-Memory Reasoning</h3>
-                <p>Our RAM-only session model ensures that sensitive reasoning memory exists only during execution and is purged immediately after.</p>
-            </div>
-            <div class="feature-card glass">
-                <div class="feature-icon">⚡</div>
-                <h3>Native Performance</h3>
-                <p>Built with Tauri v2 and Rust for near-zero overhead. Ultra-fast startup and responsive UI even during heavy scans.</p>
-            </div>
-            <div class="feature-card glass">
-                <div class="feature-icon">🔒</div>
-                <h3>Encrypted artifacts</h3>
-                <p>Persistent results are stored using AES-256-GCM encryption, tied to your local OS machine fingerprint.</p>
-            </div>
-            <div class="feature-card glass">
-                <div class="feature-icon">🧬</div>
-                <h3>Runtime Integrity</h3>
-                <p>Advanced anti-tampering system verifies application integrity on every launch to prevent supply chain attacks.</p>
-            </div>
-            <div class="feature-card glass">
-                <div class="feature-icon">🔄</div>
-                <h3>Silent Auto-Updates</h3>
-                <p>Continuous security improvements delivered via our hardened background update system.</p>
-            </div>
-        </div>
-    </section>
+                <!-- Titan Dashboard App Frame -->
+                <div class="titan-frame reveal" id="titan-viz">
+                    <div class="titan-inner">
+                        <!-- Sidebar -->
+                        <div class="titan-sidebar">
+                            <div>
+                                <div class="titan-label">Agent Status</div>
+                                <div style="display:flex; align-items:center; gap:10px; margin-top:10px;">
+                                    <div
+                                        style="width:12px; height:12px; background:var(--accent-success); border-radius:50%; box-shadow:0 0 10px var(--accent-success);">
+                                    </div>
+                                    <span style="font-family:'JetBrains Mono'; font-size:0.8rem;">READY: SOC_110</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="titan-label">Local Memory</div>
+                                <div
+                                    style="height:8px; background:rgba(255,255,255,0.05); border-radius:10px; margin-top:10px; position:relative; overflow:hidden;">
+                                    <div
+                                        style="width:35%; height:100%; background:var(--accent-primary); box-shadow:0 0 10px var(--accent-primary);">
+                                    </div>
+                                </div>
+                                <div
+                                    style="display:flex; justify-content:space-between; font-family:'JetBrains Mono'; font-size:0.6rem; color:var(--text-dim); margin-top:5px;">
+                                    <span>2.4GB / 32GB</span>
+                                    <span>8.2%</span>
+                                </div>
+                            </div>
+                            <div style="flex-grow:1;">
+                                <div class="titan-label" style="margin-bottom:15px;">Target Map</div>
+                                <div
+                                    style="width:100%; height:150px; background:rgba(255,255,255,0.02); border:1px solid var(--glass-border); border-radius:12px; position:relative;">
+                                    <div
+                                        style="position:absolute; top:20%; left:30%; width:6px; height:6px; background:var(--accent-danger); border-radius:50%;">
+                                    </div>
+                                    <div
+                                        style="position:absolute; top:60%; left:70%; width:6px; height:6px; background:var(--accent-success); border-radius:50%;">
+                                    </div>
+                                    <div
+                                        style="position:absolute; top:40%; left:50%; width:20px; height:20px; border:1px solid var(--accent-primary); border-radius:50%; animation: pulse-glow 2s infinite;">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-    <section id="downloads" class="downloads">
-        <div style="text-align:center;">
-            <span class="section-tag">Get Started</span>
-            <h2 style="font-size:3rem;">Available <span class="gradient-text">Everywhere</span></h2>
-        </div>
+                        <!-- Main Logic Center -->
+                        <div class="titan-main">
+                            <div class="node-center">
+                                <i data-lucide="shield"></i>
+                            </div>
+                            <div style="position:absolute; bottom:30px; width:100%; text-align:center;">
+                                <div class="titan-label">REASONING_CORE_00X</div>
+                                <div id="mission-timer"
+                                    style="font-family:'JetBrains Mono'; font-size:1.5rem; font-weight:700; color:var(--accent-primary); margin-top:5px;">
+                                    00:00:00:00</div>
+                            </div>
+                        </div>
 
-        <div class="os-tabs">
-            <button class="os-btn active">Windows</button>
-            <button class="os-btn">macOS</button>
-            <button class="os-btn">Linux</button>
-        </div>
-
-        <div class="download-panel glass">
-            <div class="download-grid">
-                <a href="#" class="dl-item">
-                    <strong>Windows Installer (.exe)</strong>
-                    <div style="font-size:0.8rem; color: #a1a1a1; margin-top:5px;">Standard Install</div>
-                </a>
-                <a href="#" class="dl-item">
-                    <strong>Portable (.zip)</strong>
-                    <div style="font-size:0.8rem; color: #a1a1a1; margin-top:5px;">No installation needed</div>
-                </a>
-                <a href="#" class="dl-item">
-                    <strong>Winget</strong>
-                    <div style="font-size:0.7rem; font-family:monospace; margin-top:5px; color:var(--accent-primary)">winget install MYTH</div>
-                </a>
+                        <!-- Technical Inspector -->
+                        <div class="titan-inspector">
+                            <div class="titan-label">Tactical Stream</div>
+                            <div class="terminal-titan" id="titan-logs">
+                                <div class="terminal-line">> AWAITING MISSION...</div>
+                            </div>
+                            <div
+                                style="background:rgba(255,255,255,0.02); padding:20px; border-radius:16px; border:1px solid var(--glass-border);">
+                                <div class="titan-label">Tool Matrix</div>
+                                <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:15px;">
+                                    <div style="font-size:0.7rem; color:var(--text-dim)">NMAP: <span
+                                            style="color:var(--accent-success)">LIVE</span></div>
+                                    <div style="font-size:0.7rem; color:var(--text-dim)">SQLMAP: <span
+                                            style="color:var(--accent-warning)">WAIT</span></div>
+                                    <div style="font-size:0.7rem; color:var(--text-dim)">NUCLEI: <span
+                                            style="color:var(--accent-success)">LIVE</span></div>
+                                    <div style="font-size:0.7rem; color:var(--text-dim)">BURP: <span
+                                            style="color:var(--accent-danger)">BUSY</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <p class="dl-type">Also supported: Chocolatey, Scoop, and MSIX.</p>
-        </div>
-    </section>
+        </section>
 
-    <footer style="padding: 100px 8%; border-top: 1px solid var(--glass-border); display:flex; justify-content:space-between; align-items:center;">
-        <div class="logo">⌬ <span>MYTH</span></div>
-        <div style="color:var(--text-dim); font-size:0.9rem;">
-            &copy; 2026 MYTH Tools. All Rights Reserved. Professional Grade Security.
-        </div>
-        <div class="nav-links">
-            <a href="#">Security Policy</a>
-            <a href="#">Mirror</a>
+        <!-- Bento Grid Features -->
+        <section class="section" id="capabilities">
+            <div class="container">
+                <div class="section-head reveal">
+                    <div class="badge">Architecture</div>
+                    <h2>Engineered for <span style="color:var(--accent-primary)">Titan</span> Scale</h2>
+                </div>
+
+                <div class="bento-grid">
+                    <div class="bento-item large reveal">
+                        <div class="bento-icon"><i data-lucide="swords"></i></div>
+                        <h3>672+ Tactical Tools Orchestrated</h3>
+                        <p>MYTH doesn't just run tools. ItReasons about them. The autonomous engine chains findings from
+                            Nmap, Nuclei, and Metasploit into single, coherent mission reports.</p>
+                    </div>
+                    <div class="bento-item reveal">
+                        <div class="bento-icon"><i data-lucide="shield-check"></i></div>
+                        <h3>Zero-Knowledge Architecture</h3>
+                        <p>Your intel is your business. All operations happen in a hardened, RAM-only local sandbox.</p>
+                    </div>
+                    <div class="bento-item reveal">
+                        <div class="bento-icon"><i data-lucide="zap"></i></div>
+                        <h3>Ultra-Sovereign Proxying</h3>
+                        <p>Built-in traffic rotation across 50,000+ nodes to ensure your agent remains ghost-like.</p>
+                    </div>
+                    <div class="bento-item featured reveal">
+                        <div class="bento-icon"><i data-lucide="box"></i></div>
+                        <h3>Sidecar Packaging</h3>
+                        <p>The entire Python environment is bundled into a native, standalone binary. Zero global
+                            dependencies, 100% isolation.</p>
+                    </div>
+                    <div class="bento-item reveal">
+                        <div class="bento-icon"><i data-lucide="lock"></i></div>
+                        <h3>Hardware Encryption</h3>
+                        <p>Findings are sealed with AES-256-GCM tied directly to your CPU's hardware fingerprint.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Distribution Section -->
+        <section class="section dist-titan" id="downloads">
+            <div class="container">
+                <div class="section-head reveal">
+                    <div class="badge">Universal Strike</div>
+                    <h2>Native. <span style="color:var(--accent-primary)">Universal.</span> Strike-Ready.</h2>
+                </div>
+
+                <div class="dist-grid-titan reveal">
+                    <div class="dist-group">
+                        <h3 style="display:flex; align-items:center; gap:12px; font-size:1.5rem;"><i
+                                data-lucide="monitor" style="color:var(--accent-primary)"></i> Windows</h3>
+                        <div class="dist-list">
+                            <a href="#" class="dist-item dist-link"><span>Standard Installer</span><span
+                                    class="tag-os">.MSI</span></a>
+                            <a href="#" class="dist-item dist-link"><span>Portable Bundle</span><span
+                                    class="tag-os">.ZIP</span></a>
+                            <div class="dist-item dist-link" style="cursor:pointer;"
+                                onclick="copyCmd('winget install MYTH')">
+                                <span>winget install MYTH</span>
+                                <span class="tag-os">Copy Command</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dist-group">
+                        <h3 style="display:flex; align-items:center; gap:12px; font-size:1.5rem;"><i data-lucide="apple"
+                                style="color:var(--accent-secondary)"></i> macOS</h3>
+                        <div class="dist-list">
+                            <a href="#" class="dist-item dist-link"><span>Universal Binary</span><span
+                                    class="tag-os">.DMG</span></a>
+                            <div class="dist-item dist-link" style="cursor:pointer;"
+                                onclick="copyCmd('brew install --cask myth')">
+                                <span>brew install myth</span>
+                                <span class="tag-os">Copy Command</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dist-group">
+                        <h3 style="display:flex; align-items:center; gap:12px; font-size:1.5rem;"><i
+                                data-lucide="terminal" style="color:var(--accent-success)"></i> Linux Native</h3>
+                        <div class="dist-list">
+                            <a href="#" class="dist-item dist-link"><span>Universal Package</span><span
+                                    class="tag-os">AppImage</span></a>
+                            <a href="#" class="dist-item dist-link"><span>Debian / Ubuntu / Kali</span><span
+                                    class="tag-os">.DEB</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer style="padding:150px 0 80px; text-align:center; border-top:1px solid var(--glass-border);">
+        <div class="container">
+            <div class="logo" style="margin-bottom:40px;">⌬ <span>MYTH</span></div>
+            <p style="color:var(--text-dim); max-width:600px; margin:0 auto 50px; font-size:1.1rem;">Professional Grade
+                Tactical Sovereignty. Strike first, Strike hard, Remain sovereign. 🛡️🛰️🦾</p>
+            <div
+                style="font-family:'JetBrains Mono'; font-size:0.75rem; color:rgba(255,255,255,0.25); letter-spacing:2px;">
+                &copy; 2026 MYTH TOOLS GLOBAL. ALL RIGHTS RESERVED.</div>
         </div>
     </footer>
 
     <script>
-        // Simple tab switcher for downloads
-        const tabs = document.querySelectorAll('.os-btn');
-        const dlItems = {
-            'Windows': [
-                {name: 'Windows Installer (.exe)', cmd: 'winget install MYTH'},
-                {name: 'Portable ZIP', cmd: 'scoop install myth'}
-            ],
-            'macOS': [
-                {name: 'macOS DMG (Universal)', cmd: 'brew install --cask myth'},
-                {name: 'Apple Silicon PKG', cmd: 'port install myth'}
-            ],
-            'Linux': [
-                {name: 'AppImage', cmd: 'flatpak install myth'},
-                {name: 'Debian / Ubuntu (.deb)', cmd: 'apt install myth'}
-            ]
-        };
+        lucide.createIcons();
 
-        tabs.forEach(tab => {
-            tab.addEventListener('click', () => {
-                tabs.forEach(t => t.classList.remove('active'));
-                tab.classList.add('active');
-                // In a real app, update the grid below.
+        // Reveal Animation Engine
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    if (entry.target.id === 'titan-viz') startSim();
+                }
             });
-        });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Mission Control Simulator
+        const logs = [
+            "> INITIALIZING_MISSION: OP_PHANTOM",
+            "> SCANNING_VECTORS: LOCAL_LAN",
+            "> AGENT_REASONING: ATTEMPTING_OVERRIDE_B",
+            "> SUCCESS: BYPASSED_GATEWAY_33",
+            "> DEPLOYING_NUCLEI_SUITE",
+            "> FOUND_CRITICAL: AUTH_BYPASS_CVE",
+            "> CHAINING_METASPLOIT_MODULES",
+            "> SHELL_OBTAINED: AGENT_001_PERSISTENT",
+            "> PURGING_TRACES: AES_DESTRUCTION",
+            "> MISSION_COMPLETE. SOVEREIGNRY_MAINTAINED."
+        ];
+
+        const terminal = document.getElementById('titan-logs');
+        let logIdx = 0;
+        let simInterval;
+
+        function startSim() {
+            if (simInterval) return;
+            simInterval = setInterval(() => {
+                const line = document.createElement('div');
+                line.className = 'terminal-line active';
+                line.textContent = logs[logIdx % logs.length];
+                terminal.appendChild(line);
+                if (terminal.children.length > 12) terminal.removeChild(terminal.children[0]);
+                terminal.scrollTop = terminal.scrollHeight;
+                logIdx++;
+            }, 2500);
+        }
+
+        // Mission Timer
+        let seconds = 0;
+        setInterval(() => {
+            seconds++;
+            const h = Math.floor(seconds / 3600).toString().padStart(2, '0');
+            const m = Math.floor((seconds % 3600) / 60).toString().padStart(2, '0');
+            const s = (seconds % 60).toString().padStart(2, '0');
+            const ms = Math.floor(Math.random() * 100).toString().padStart(2, '0');
+            document.getElementById('mission-timer').textContent = `00:${h}:${m}:${s}:${ms}`;
+        }, 33);
+
+        function copyCmd(txt) {
+            navigator.clipboard.writeText(txt);
+            alert('Command Copied: ' + txt);
+        }
+
+        function simulateMission() {
+            document.getElementById('titan-viz').scrollIntoView({ behavior: 'smooth' });
+        }
     </script>
 </body>
+
 </html>
