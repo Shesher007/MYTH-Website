@@ -1,6 +1,6 @@
 # ⌬ MYTH: The Sovereign AI Cybersecurity Agent
 
-![Version](https://img.shields.io/badge/Version-1.1.1-cyan?style=for-the-badge)
+![Version](https://img.shields.io/badge/Version-1.1.3-cyan?style=for-the-badge)
 ![License](https://img.shields.io/badge/License-Commercial-blueviolet?style=for-the-badge)
 ![Deployment](https://img.shields.io/badge/Deployment-43+%20Formats-brightgreen?style=for-the-badge)
 
