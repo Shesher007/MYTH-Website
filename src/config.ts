@@ -6,27 +6,27 @@
 export const CONFIG = {
     // Identity
     appName: "MYTH",
-    appVersion: "1.1.3",
+    appVersion: "1.1.4",
     
     // URLs
-    releaseUrl: "https://github.com/shesher010/MYTH/releases/download/v1.1.3",
+    releaseUrl: "https://github.com/shesher010/MYTH/releases/download/v1.1.4",
     repoUrl: "https://github.com/shesher010/MYTH",
     docsUrl: "https://docs.myth-tools.com",
     
     // Artifacts
     downloads: {
         linux: {
-            deb: "myth_1.1.3_amd64.deb",
-            rpm: "myth-1.1.3-1.x86_64.rpm",
-            appimage: "MYTH_1.1.3_amd64.AppImage",
-            tarball: "v1.1.3.tar.gz"
+            deb: "myth_1.1.4_amd64.deb",
+            rpm: "myth-1.1.4-1.x86_64.rpm",
+            appimage: "MYTH_1.1.4_amd64.AppImage",
+            tarball: "v1.1.4.tar.gz"
         },
         windows: {
-            msi: "MYTH_1.1.3_x64_en-US.msi",
-            nsis: "MYTH_1.1.3_x64-setup.exe"
+            msi: "MYTH_1.1.4_x64_en-US.msi",
+            nsis: "MYTH_1.1.4_x64-setup.exe"
         },
         macos: {
-            dmg: "MYTH_1.1.3_universal.dmg"
+            dmg: "MYTH_1.1.4_universal.dmg"
         }
     }
 } as const

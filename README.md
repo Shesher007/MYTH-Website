@@ -1,48 +1,64 @@
-# MYTH - Official Website
+# MYTH
 
-The official landing page for **MYTH**, the autonomous sovereign agent. 
+**High-Performance Offensive Intelligence Engine**
 
-## ⚡ Tech Stack
+[![Release](https://img.shields.io/github/v/release/?style=flat-square&color=#1A1A1A)](https://github.com/shesher010/MYTH/releases/download/v1.1.4)
+[![License](https://img.shields.io/badge/license-MIT-blue?style=flat-square)](https://github.com/shesher010/MYTH/blob/main/LICENSE)
+[![Discord](https://img.shields.io/discord/1234567890?label=discord&style=flat-square&color=5865F2)](https://discord.gg/myth-tools)
 
-- **Framework**: [React](https://react.dev/) + [Vite](https://vitejs.dev/)
-- **Language**: [TypeScript](https://www.typescriptlang.org/)
-- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
-- **Motion**: [Framer Motion](https://www.framer.com/motion/)
-- **Icons**: [Lucide React](https://lucide.dev/)
-- **SEO**: [React Helmet Async](https://github.com/staylor/react-helmet-async)
+Industrial-Grade Sovereign Security Agent
 
-## 🛠️ Development
+## 📥 Installation
 
-### Prerequisites
-- Node.js 18+
-- npm 9+
+### Windows
+Download the latest installer:
+- [**Installer (.msi)**](https://github.com/shesher010/MYTH/releases/download/v1.1.4/MYTH_1.1.4_x64_en-US.msi)
+- [**Portable (.exe)**](https://github.com/shesher010/MYTH/releases/download/v1.1.4/MYTH_1.1.4_x64-setup.exe)
 
-### Setup
+### Linux
+We support major Linux distributions.
+
+**Debian / Ubuntu / Kali**
 ```bash
-# Install dependencies
-npm install
-
-# Start development server
-npm run dev
+wget https://github.com/shesher010/MYTH/releases/download/v1.1.4/myth_1.1.4_amd64.deb
+sudo dpkg -i myth_1.1.4_amd64.deb
 ```
 
-### Build
+**Fedora / RHEL / CentOS**
 ```bash
-# Type-check and build for production
-npm run build
+wget https://github.com/shesher010/MYTH/releases/download/v1.1.4/myth-1.1.4-1.x86_64.rpm
+sudo rpm -i myth-1.1.4-1.x86_64.rpm
 ```
 
-## 📂 Project Structure
+**Universal AppImage**
+```bash
+wget https://github.com/shesher010/MYTH/releases/download/v1.1.4/MYTH_1.1.4_amd64.AppImage
+chmod +x MYTH_1.1.4_amd64.AppImage
+./MYTH_1.1.4_amd64.AppImage
+```
 
+### macOS
+Download the universal disk image:
+- [**Universal (.dmg)**](https://github.com/shesher010/MYTH/releases/download/v1.1.4/MYTH_1.1.4_universal.dmg)
+
+Open the `.dmg` file and drag **MYTH** to your Applications folder.
+
+---
+
+## ⚡ Quick Start
+
+After installation, run **MYTH** from your application menu or terminal:
+
+```bash
+myth
 ```
-src/
-├── components/   # UI building blocks (Navbar, Hero, etc.)
-├── lib/          # Utilities (cn, helpers)
-├── assets/       # Static media
-├── App.tsx       # Main layout and composition
-└── index.css     # Global styles & Tailwind configuration
-```
+
+## 📚 Documentation
+
+For full documentation, tutorials, and API reference, visit:
+[**https://docs.myth-tools.com**](https://docs.myth-tools.com)
 
 ## 🛡️ License
 
-Proprietary. All rights reserved. MYTH GLOBAL.
+Protected under **MIT**. PROPRIETARY - OMEGA-ULTIMATE-v1.
+Copyright © 2024-2026 MYTH.
