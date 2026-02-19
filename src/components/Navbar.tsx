@@ -1,10 +1,14 @@
 import { useState, useEffect } from "react"
-import { Menu, X, Zap } from "lucide-react"
+import { Menu, X, Zap, Terminal as TerminalIcon } from "lucide-react"
 import { cn } from "../lib/utils"
 import { motion, AnimatePresence } from "framer-motion"
 import MagneticButton from "./ui/MagneticButton"
 
-export default function Navbar() {
+interface NavbarProps {
+    onToggleTerminal?: () => void
+}
+
+export default function Navbar({ onToggleTerminal }: NavbarProps) {
     const [isScrolled, setIsScrolled] = useState(false)
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
@@ -52,7 +56,17 @@ export default function Navbar() {
                 </div>
 
                 {/* Desktop CTA */}
-                <div className="hidden md:flex items-center">
+                <div className="hidden md:flex items-center gap-4">
+                    {onToggleTerminal && (
+                        <button
+                            onClick={onToggleTerminal}
+                            className="text-muted-foreground hover:text-primary transition-colors p-2"
+                            title="Open Terminal (~)"
+                        >
+                            <TerminalIcon className="w-5 h-5" />
+                        </button>
+                    )}
+
                     <MagneticButton strength={25}>
                         <a
                             href="#downloads"
@@ -92,6 +106,17 @@ export default function Navbar() {
                                     {link.name}
                                 </a>
                             ))}
+                            {onToggleTerminal && (
+                                <button
+                                    onClick={() => {
+                                        onToggleTerminal()
+                                        setIsMobileMenuOpen(false)
+                                    }}
+                                    className="text-lg font-medium text-muted-foreground hover:text-white flex items-center gap-2"
+                                >
+                                    Open Terminal <TerminalIcon className="w-4 h-4" />
+                                </button>
+                            )}
                             <a
                                 href="#downloads"
                                 onClick={() => setIsMobileMenuOpen(false)}

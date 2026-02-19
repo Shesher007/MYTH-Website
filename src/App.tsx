@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react"
 import { Helmet } from "react-helmet-async"
 import Navbar from "./components/Navbar"
 import Hero from "./components/Hero"
@@ -5,11 +6,26 @@ import FeatureBento from "./components/FeatureBento"
 import SystemSpec from "./components/SystemSpec"
 import DownloadDock from "./components/DownloadDock"
 import SmoothScroll from "./components/ui/SmoothScroll"
+import TitanTerminal from "./components/TitanTerminal"
 
 function App() {
+  const [isTerminalOpen, setIsTerminalOpen] = useState(false)
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === '`' || e.key === '~') {
+        setIsTerminalOpen(prev => !prev)
+      }
+    }
+    window.addEventListener('keydown', handleKeyDown)
+    return () => window.removeEventListener('keydown', handleKeyDown)
+  }, [])
+
   return (
     <main className="min-h-screen bg-background text-foreground antialiased selection:bg-primary/30 relative">
       <SmoothScroll />
+      <TitanTerminal isOpen={isTerminalOpen} onClose={() => setIsTerminalOpen(false)} />
+
       {/* Film Grain / Noise Overlay */}
       <div className="fixed inset-0 pointer-events-none z-[9999] opacity-[0.03] mix-blend-overlay bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
 
@@ -22,7 +38,7 @@ function App() {
         <meta property="og:type" content="website" />
         <meta name="theme-color" content="#7c3aed" />
       </Helmet>
-      <Navbar />
+      <Navbar onToggleTerminal={() => setIsTerminalOpen(p => !p)} />
       <Hero />
       <FeatureBento />
       <SystemSpec />

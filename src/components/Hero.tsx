@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react"
 import { ArrowRight, Download, Terminal } from "lucide-react"
 import { motion } from "framer-motion"
 import BackgroundGrid from "./ui/BackgroundGrid"
@@ -7,6 +8,15 @@ import ParticleConstellation from "./ui/ParticleConstellation"
 import MagneticButton from "./ui/MagneticButton"
 
 export default function Hero() {
+    const [osName, setOsName] = useState("Windows")
+
+    useEffect(() => {
+        const platform = window.navigator.platform.toLowerCase()
+        if (platform.includes("mac")) setOsName("macOS")
+        else if (platform.includes("linux")) setOsName("Linux")
+        else setOsName("Windows")
+    }, [])
+
     return (
         <section className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
             {/* Background Effects */}
@@ -63,7 +73,7 @@ export default function Hero() {
                             className="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-md bg-primary px-8 font-medium text-white transition-all duration-300 hover:bg-primary/90 hover:shadow-[0_0_20px_-5px_var(--primary)]"
                         >
                             <Download className="mr-2 h-5 w-5 transition-transform group-hover:-translate-y-1" />
-                            <span>Download for Windows</span>
+                            <span>Download for {osName}</span>
                             <div className="absolute inset-0 -z-10 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.2)_50%,transparent_75%)] bg-[length:250%_250%,100%_100%] bg-[position:-100%_0,0_0] bg-no-repeat transition-[background-position_0s] duration-0 group-hover:bg-[position:200%_0,0_0] group-hover:duration-[1500ms]" />
                         </a>
                     </MagneticButton>
