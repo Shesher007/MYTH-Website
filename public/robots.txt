@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://shesher010.github.io/MYTH-Website/sitemap.xml

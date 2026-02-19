@@ -4,10 +4,15 @@ import Hero from "./components/Hero"
 import FeatureBento from "./components/FeatureBento"
 import SystemSpec from "./components/SystemSpec"
 import DownloadDock from "./components/DownloadDock"
+import SmoothScroll from "./components/ui/SmoothScroll"
 
 function App() {
   return (
-    <main className="min-h-screen bg-background text-foreground antialiased selection:bg-primary/30">
+    <main className="min-h-screen bg-background text-foreground antialiased selection:bg-primary/30 relative">
+      <SmoothScroll />
+      {/* Film Grain / Noise Overlay */}
+      <div className="fixed inset-0 pointer-events-none z-[9999] opacity-[0.03] mix-blend-overlay bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
+
       <Helmet>
         <title>MYTH - Autonomous Sovereign Agent | Industrial Security Core</title>
         <meta name="description" content="The professional-grade autonomous AI agent for offensive and defensive security. 672+ tactical tools orchestrated locally. 100% Offline. Zero Cloud Dependencies." />
@@ -23,7 +28,7 @@ function App() {
       <SystemSpec />
       <DownloadDock />
 
-      <footer className="py-24 border-t border-white/5 text-center">
+      <footer className="py-24 border-t border-white/5 text-center relative z-10">
         <div className="container px-6">
           <div className="text-2xl font-bold tracking-tighter mb-8 flex items-center justify-center gap-2">
             <span className="text-cyan-400">⌬</span>

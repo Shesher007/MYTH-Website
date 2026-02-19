@@ -1,0 +1,14 @@
+{
+    "name": "MYTH | Autonomous Sovereign Agent",
+    "short_name": "MYTH",
+    "icons": [
+        {
+            "src": "/MYTH-Website/vite.svg",
+            "sizes": "192x192",
+            "type": "image/svg+xml"
+        }
+    ],
+    "theme_color": "#1a1a1a",
+    "background_color": "#000000",
+    "display": "standalone"
+}

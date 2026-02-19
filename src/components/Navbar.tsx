@@ -2,6 +2,7 @@ import { useState, useEffect } from "react"
 import { Menu, X, Zap } from "lucide-react"
 import { cn } from "../lib/utils"
 import { motion, AnimatePresence } from "framer-motion"
+import MagneticButton from "./ui/MagneticButton"
 
 export default function Navbar() {
     const [isScrolled, setIsScrolled] = useState(false)
@@ -39,24 +40,27 @@ export default function Navbar() {
                 {/* Desktop Nav */}
                 <div className="hidden md:flex items-center gap-8">
                     {navLinks.map((link) => (
-                        <a
-                            key={link.name}
-                            href={link.href}
-                            className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
-                        >
-                            {link.name}
-                        </a>
+                        <MagneticButton key={link.name} strength={15}>
+                            <a
+                                href={link.href}
+                                className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors block px-2 py-1"
+                            >
+                                {link.name}
+                            </a>
+                        </MagneticButton>
                     ))}
                 </div>
 
                 {/* Desktop CTA */}
                 <div className="hidden md:flex items-center">
-                    <a
-                        href="#downloads"
-                        className="flex items-center gap-2 bg-primary hover:bg-primary/90 text-white px-6 py-2.5 rounded-lg text-sm font-semibold transition-all shadow-[0_0_20px_rgba(124,58,237,0.3)] hover:shadow-[0_0_30px_rgba(124,58,237,0.5)]"
-                    >
-                        Deploy Agent <Zap className="w-4 h-4 fill-current" />
-                    </a>
+                    <MagneticButton strength={25}>
+                        <a
+                            href="#downloads"
+                            className="flex items-center gap-2 bg-primary hover:bg-primary/90 text-white px-6 py-2.5 rounded-lg text-sm font-semibold transition-all shadow-[0_0_20px_rgba(124,58,237,0.3)] hover:shadow-[0_0_30px_rgba(124,58,237,0.5)]"
+                        >
+                            Deploy Agent <Zap className="w-4 h-4 fill-current" />
+                        </a>
+                    </MagneticButton>
                 </div>
 
                 {/* Mobile Menu Button */}
