@@ -5,6 +5,10 @@ export default {
         "./src/**/*.{js,ts,jsx,tsx}",
     ],
     theme: {
+        container: {
+            center: true,
+            padding: "1.5rem",
+        },
         extend: {
             colors: {
                 background: "hsl(var(--background))",

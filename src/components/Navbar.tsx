@@ -35,6 +35,9 @@ export default function Navbar({ onToggleTerminal }: NavbarProps) {
                     : "bg-transparent border-transparent py-6"
             )}
         >
+            <a href="#content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-primary text-white px-4 py-2 rounded-lg z-[60]">
+                Skip to content
+            </a>
             <div className="container mx-auto px-6 flex items-center justify-between">
                 <a href="#" className="text-2xl font-bold tracking-tighter flex items-center gap-2">
                     <span className="text-cyan-400">⌬</span>
@@ -47,9 +50,11 @@ export default function Navbar({ onToggleTerminal }: NavbarProps) {
                         <MagneticButton key={link.name} strength={15}>
                             <a
                                 href={link.href}
-                                className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors block px-2 py-1"
+                                className="group relative text-sm font-medium text-muted-foreground hover:text-cyan-400 transition-colors block px-4 py-2"
                             >
+                                <span className="absolute left-0 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity text-cyan-500 font-mono">[</span>
                                 {link.name}
+                                <span className="absolute right-0 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity text-cyan-500 font-mono">]</span>
                             </a>
                         </MagneticButton>
                     ))}
@@ -57,30 +62,26 @@ export default function Navbar({ onToggleTerminal }: NavbarProps) {
 
                 {/* Desktop CTA */}
                 <div className="hidden md:flex items-center gap-4">
-                    {onToggleTerminal && (
+                    <MagneticButton strength={25}>
                         <button
                             onClick={onToggleTerminal}
-                            className="text-muted-foreground hover:text-primary transition-colors p-2"
-                            title="Open Terminal (~)"
+                            className="flex items-center gap-2 bg-black/50 hover:bg-cyan-950/30 text-cyan-400 border border-cyan-800/50 hover:border-cyan-500 px-6 py-2.5 rounded-lg text-sm font-mono font-bold transition-all shadow-[0_0_10px_rgba(6,182,212,0.1)] hover:shadow-[0_0_20px_rgba(6,182,212,0.3)] group"
                         >
-                            <TerminalIcon className="w-5 h-5" />
+                            <span className="relative flex h-2 w-2 mr-1">
+                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
+                                <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-500"></span>
+                            </span>
+                            SYSTEM CONSOLE
+                            <TerminalIcon className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
                         </button>
-                    )}
-
-                    <MagneticButton strength={25}>
-                        <a
-                            href="#downloads"
-                            className="flex items-center gap-2 bg-primary hover:bg-primary/90 text-white px-6 py-2.5 rounded-lg text-sm font-semibold transition-all shadow-[0_0_20px_rgba(124,58,237,0.3)] hover:shadow-[0_0_30px_rgba(124,58,237,0.5)]"
-                        >
-                            Deploy Agent <Zap className="w-4 h-4 fill-current" />
-                        </a>
                     </MagneticButton>
                 </div>
 
                 {/* Mobile Menu Button */}
                 <button
-                    className="md:hidden text-white"
+                    className="md:hidden text-white p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
                     onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                    aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
                 >
                     {isMobileMenuOpen ? <X /> : <Menu />}
                 </button>

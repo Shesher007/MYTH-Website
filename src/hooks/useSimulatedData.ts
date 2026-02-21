@@ -1,66 +1,61 @@
 import { useState, useEffect } from 'react'
 
-export interface SystemData {
-    cpu: number[]
-    ram: number[]
-    networkIn: number
-    networkOut: number
-    activeThreats: number
-    scanProgress: number
-    logs: string[]
-}
-
-const LOG_MESSAGES = [
-    "Scanning port 443...",
-    "Packet intercepted from 192.168.1.x",
-    "Analyzing heurisitic patterns...",
-    "Update check: Titan v1.1.3 is current",
-    "Encryption keys rotated",
-    "Sandbox integrity verified",
-    "Neural engine optimizing...",
-    "Threat index: Low",
-    "Ping: 12ms",
-    "Allocating ram for analysis...",
-]
-
-export function useSimulatedData() {
-    const [data, setData] = useState<SystemData>({
+export const useSimulatedData = () => {
+    const [stats, setStats] = useState({
         cpu: Array(20).fill(0),
         ram: Array(20).fill(0),
         networkIn: 0,
         networkOut: 0,
         activeThreats: 0,
         scanProgress: 0,
-        logs: ["System initialized"]
+        logs: [] as string[]
     })
 
     useEffect(() => {
-        const interval = setInterval(() => {
-            setData(prev => {
-                const newCpu = [...prev.cpu.slice(1), Math.floor(Math.random() * 40) + 10]
-                const newRam = [...prev.ram.slice(1), Math.floor(Math.random() * 30) + 20]
+        const initialLogs = [
+            "Initializing neural pathways...",
+            "Loading tactical toolsets (670+ orchestrated)",
+            "Establishing sovereign local connection...",
+            "Update check: MYTH v1.1.6 is current",
+            "Hardware encryption verified: AES-256-GCM",
+            "System state: READY"
+        ]
+        
+        setStats(prev => ({ ...prev, logs: initialLogs }))
 
-                // Randomly add a log message
+        const interval = setInterval(() => {
+            setStats(prev => {
+                const newCpuVal = Math.floor(Math.random() * 45) + 15
+                const newRamVal = Math.floor(Math.random() * 30) + 40
+                
+                const newCpu = [...prev.cpu.slice(1), newCpuVal]
+                const newRam = [...prev.ram.slice(1), newRamVal]
+                
+                const newNetworkIn = Math.floor(Math.random() * 500) + 100
+                const newNetworkOut = Math.floor(Math.random() * 200) + 50
+                const addThreat = Math.random() > 0.9
+                
                 const newLogs = [...prev.logs]
-                if (Math.random() > 0.7) {
-                    newLogs.push(LOG_MESSAGES[Math.floor(Math.random() * LOG_MESSAGES.length)])
-                    if (newLogs.length > 8) newLogs.shift()
+                if (addThreat) {
+                    const threats = ["Attempted probe blocked", "Traffic anomaly intercepted", "Credential rotation enforced", "Neural link optimized"]
+                    newLogs.unshift(`[${new Date().toLocaleTimeString()}] ${threats[Math.floor(Math.random() * threats.length)]}`)
+                    if (newLogs.length > 20) newLogs.pop()
                 }
 
                 return {
                     cpu: newCpu,
                     ram: newRam,
-                    networkIn: Math.floor(Math.random() * 500) + 100, // KB/s
-                    networkOut: Math.floor(Math.random() * 200) + 50, // KB/s
-                    activeThreats: Math.floor(Math.random() * 3),
+                    networkIn: newNetworkIn,
+                    networkOut: newNetworkOut,
+                    activeThreats: prev.activeThreats + (addThreat ? 1 : 0),
                     scanProgress: (prev.scanProgress + 1) % 100,
                     logs: newLogs
                 }
             })
-        }, 1000)
+        }, 3000)
 
         return () => clearInterval(interval)
     }, [])
 
-    return data
+    return stats
 }

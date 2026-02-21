@@ -1,11 +1,13 @@
 {
   "name": "myth-website",
   "private": true,
-  "version": "1.1.5",
+  "version": "1.1.6",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "build:github": "set GITHUB_ACTIONS=true && npm run build",
+    "build:cloudflare": "npm run build",
     "lint": "eslint .",
     "preview": "vite preview"
   },

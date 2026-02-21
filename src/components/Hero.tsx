@@ -1,93 +1,101 @@
-import { useState, useEffect } from "react"
-import { ArrowRight, Download, Terminal } from "lucide-react"
 import { motion } from "framer-motion"
-import BackgroundGrid from "./ui/BackgroundGrid"
-import GlitchText from "./ui/GlitchText"
-import TextDecode from "./ui/TextDecode"
-import ParticleConstellation from "./ui/ParticleConstellation"
+import { Shield, Zap } from "lucide-react"
 import MagneticButton from "./ui/MagneticButton"
+import TextDecode from "./ui/TextDecode"
 
 export default function Hero() {
-    const [osName, setOsName] = useState("Windows")
-
-    useEffect(() => {
-        const platform = window.navigator.platform.toLowerCase()
-        if (platform.includes("mac")) setOsName("macOS")
-        else if (platform.includes("linux")) setOsName("Linux")
-        else setOsName("Windows")
-    }, [])
-
     return (
-        <section className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
-            {/* Background Effects */}
-            <BackgroundGrid />
-            <ParticleConstellation />
-            <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent pointer-events-none" />
+        <section className="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden">
+            {/* Ambient Background Elements */}
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-6xl pointer-events-none">
+            </div>
 
-            <div className="container relative z-10 px-6 text-center">
+            <div className="container relative z-10 px-6 text-center mx-auto">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8 }}
-                    className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-panel mb-8 border-accent/30"
+                    transition={{ duration: 0.5 }}
+                    className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 mb-8"
                 >
                     <span className="relative flex h-2 w-2">
                         <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
                         <span className="relative inline-flex rounded-full h-2 w-2 bg-accent"></span>
                     </span>
                     <span className="text-sm font-medium text-accent tracking-widest uppercase">
-                        <TextDecode text="Titan Edition — v1.1.3 Online" />
+                        <TextDecode text="Titan Edition — v1.1.6 Online" />
                     </span>
                 </motion.div>
 
                 <motion.h1
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.2 }}
-                    className="text-5xl md:text-7xl font-bold tracking-tight mb-6"
+                    transition={{ duration: 0.5, delay: 0.1 }}
+                    className="text-4xl md:text-8xl font-bold tracking-tighter leading-tight"
                 >
-                    <GlitchText text="Autonomous" className="text-white" /> <br />
+                    Autonomous <br />
                     <span className="text-gradient">Sovereign Agent</span>
                 </motion.h1>
 
                 <motion.p
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.4 }}
-                    className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed"
+                    transition={{ duration: 0.5, delay: 0.2 }}
+                    className="mt-8 text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed"
                 >
-                    The professional-grade tactical core. Powered by an <span className="text-white font-medium">autonomous reasoning engine</span> controlling 672+ industrial tools.
-                    <br />
-                    <span className="text-accent/80 font-mono text-sm mt-2 block">100% Local. 0% Cloud. Pure Persistence.</span>
+                    The professional-grade AI engine for industrial security.
+                    Orchestrating 670+ specialized tools with deterministic precision.
+                    100% Local. 100% Private. Built for the mission.
                 </motion.p>
 
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.6 }}
-                    className="flex flex-col md:flex-row items-center justify-center gap-4"
+                    transition={{ duration: 0.5, delay: 0.3 }}
+                    className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-6"
                 >
-                    <MagneticButton strength={40}>
+                    <MagneticButton strength={30}>
                         <a
                             href="#downloads"
-                            className="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-md bg-primary px-8 font-medium text-white transition-all duration-300 hover:bg-primary/90 hover:shadow-[0_0_20px_-5px_var(--primary)]"
+                            aria-label="Deploy Titan Agent Installer"
+                            className="group relative flex items-center gap-3 bg-primary text-white px-8 py-4 rounded-xl font-bold text-lg transition-all hover:scale-105 active:scale-95 shadow-[0_0_30px_rgba(124,58,237,0.4)] focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-background"
                         >
-                            <Download className="mr-2 h-5 w-5 transition-transform group-hover:-translate-y-1" />
-                            <span>Download for {osName}</span>
-                            <div className="absolute inset-0 -z-10 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.2)_50%,transparent_75%)] bg-[length:250%_250%,100%_100%] bg-[position:-100%_0,0_0] bg-no-repeat transition-[background-position_0s] duration-0 group-hover:bg-[position:200%_0,0_0] group-hover:duration-[1500ms]" />
+                            Deploy Titan Agent
+                            <Zap className="w-5 h-5 group-hover:animate-pulse" />
                         </a>
                     </MagneticButton>
 
-                    <MagneticButton strength={40}>
-                        <a
-                            href="#titan-viz"
-                            className="group inline-flex h-12 items-center justify-center rounded-md border border-input bg-background/50 px-8 font-medium shadow-sm transition-colors hover:bg-accent/10 hover:text-accent hover:border-accent/50 backdrop-blur-sm"
-                        >
-                            <Terminal className="mr-2 h-5 w-5" />
-                            <span>Connect Local Agent</span>
-                            <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                        </a>
-                    </MagneticButton>
+                    <button
+                        onClick={() => {
+                            const el = document.getElementById('capabilities');
+                            el?.scrollIntoView({ behavior: 'smooth' });
+                        }}
+                        aria-label="View Titan Agent Capabilities"
+                        className="flex items-center gap-2 px-8 py-4 rounded-xl font-bold text-lg border border-white/10 hover:bg-white/5 transition-colors focus:outline-none focus:ring-2 focus:ring-white/20 focus:ring-offset-2 focus:ring-offset-background"
+                    >
+                        View Capabilities
+                        <Shield className="w-5 h-5 text-muted-foreground" />
+                    </button>
+                </motion.div>
+
+                {/* Trust Badges / Stats */}
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 1, delay: 0.8 }}
+                    className="mt-24 grid grid-cols-2 md:grid-cols-3 gap-8 max-w-4xl mx-auto pt-12 border-t border-white/5"
+                >
+                    <div className="flex flex-col items-center">
+                        <span className="text-3xl font-bold">670+</span>
+                        <span className="text-xs text-muted-foreground uppercase tracking-widest mt-1">Tools Orchestrated</span>
+                    </div>
+                    <div className="flex flex-col items-center">
+                        <span className="text-3xl font-bold">0ms</span>
+                        <span className="text-xs text-muted-foreground uppercase tracking-widest mt-1">Cloud Latency</span>
+                    </div>
+                    <div className="flex flex-col items-center col-span-2 md:col-span-1">
+                        <span className="text-3xl font-bold">100%</span>
+                        <span className="text-xs text-muted-foreground uppercase tracking-widest mt-1">Sovereign Data</span>
+                    </div>
                 </motion.div>
             </div>
         </section>

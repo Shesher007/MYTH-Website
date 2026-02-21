@@ -4,5 +4,5 @@ import react from '@vitejs/plugin-react'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: '/MYTH-Website/',
+  base: process.env.VITE_APP_BASE_URL || (process.env.GITHUB_ACTIONS ? '/MYTH-Website/' : '/'),
 })

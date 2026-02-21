@@ -2,7 +2,7 @@
 
 **High-Performance Offensive Intelligence Engine**
 
-[![Release](https://img.shields.io/github/v/release/?style=flat-square&color=#1A1A1A)](https://github.com/shesher010/MYTH/releases/download/v1.1.5)
+[![Release](https://img.shields.io/github/v/release/?style=flat-square&color=#7c3aed)](https://github.com/shesher010/MYTH/releases/download/v1.1.6)
 [![License](https://img.shields.io/badge/license-MIT-blue?style=flat-square)](https://github.com/shesher010/MYTH/blob/main/LICENSE)
 [![Discord](https://img.shields.io/discord/1234567890?label=discord&style=flat-square&color=5865F2)](https://discord.gg/myth-tools)
 
@@ -22,8 +22,8 @@ Industrial-Grade Sovereign Security Agent
 
 ### Windows
 Download the latest installer or portable executable:
-- [**Installer (.msi)**](https://github.com/shesher010/MYTH/releases/download/v1.1.5/MYTH_1.1.5_x64_en-US.msi)
-- [**Portable (.exe)**](https://github.com/shesher010/MYTH/releases/download/v1.1.5/MYTH_1.1.5_x64-setup.exe)
+- [**Installer (.msi)**](https://github.com/shesher010/MYTH/releases/download/v1.1.6/MYTH_1.1.6_x64_en-US.msi)
+- [**Portable (.exe)**](https://github.com/shesher010/MYTH/releases/download/v1.1.6/MYTH_1.1.6_x64-setup.exe)
 
 > **Note**: Windows SmartScreen might flag the installer as unrecognized. Click "More info" > "Run anyway" to proceed.
 
@@ -32,26 +32,26 @@ We support major Linux distributions.
 
 **Debian / Ubuntu / Kali**
 ```bash
-wget https://github.com/shesher010/MYTH/releases/download/v1.1.5/myth_1.1.5_amd64.deb
-sudo dpkg -i myth_1.1.5_amd64.deb
+wget https://github.com/shesher010/MYTH/releases/download/v1.1.6/myth_1.1.6_amd64.deb
+sudo dpkg -i myth_1.1.6_amd64.deb
 ```
 
 **Fedora / RHEL / CentOS**
 ```bash
-wget https://github.com/shesher010/MYTH/releases/download/v1.1.5/myth-1.1.5-1.x86_64.rpm
-sudo rpm -i myth-1.1.5-1.x86_64.rpm
+wget https://github.com/shesher010/MYTH/releases/download/v1.1.6/myth-1.1.6-1.x86_64.rpm
+sudo rpm -i myth-1.1.6-1.x86_64.rpm
 ```
 
 **Universal AppImage**
 ```bash
-wget https://github.com/shesher010/MYTH/releases/download/v1.1.5/MYTH_1.1.5_amd64.AppImage
-chmod +x MYTH_1.1.5_amd64.AppImage
-./MYTH_1.1.5_amd64.AppImage
+wget https://github.com/shesher010/MYTH/releases/download/v1.1.6/MYTH_1.1.6_amd64.AppImage
+chmod +x MYTH_1.1.6_amd64.AppImage
+./MYTH_1.1.6_amd64.AppImage
 ```
 
 ### macOS
 Download the universal disk image:
-- [**Universal (.dmg)**](https://github.com/shesher010/MYTH/releases/download/v1.1.5/MYTH_1.1.5_universal.dmg)
+- [**Universal (.dmg)**](https://github.com/shesher010/MYTH/releases/download/v1.1.6/MYTH_1.1.6_universal.dmg)
 
 Open the `.dmg` file and drag **MYTH** to your Applications folder.
 
@@ -93,5 +93,5 @@ For full documentation, tutorials, and API reference, visit:
 
 ## 🛡️ License
 
-Protected under **MIT**. PROPRIETARY - OMEGA-ULTIMATE-v1.
+Protected under **MIT**. Pro-Elite.
 Copyright © 2024-2026 MYTH.

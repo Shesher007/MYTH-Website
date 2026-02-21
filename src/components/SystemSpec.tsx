@@ -2,7 +2,7 @@ import TelemetryDashboard from "./dashboard/TelemetryDashboard"
 
 export default function SystemSpec() {
     return (
-        <section id="titan-viz" className="container px-6 py-24 border-t border-white/5">
+        <section id="titan-viz" className="container px-6 py-24 border-t border-white/5 mx-auto">
             <div className="mb-12">
                 <span className="text-accent font-medium tracking-wider uppercase text-sm">Titan Telemetry</span>
                 <h2 className="text-3xl md:text-5xl font-bold mt-2">

@@ -1,4 +1,4 @@
-import { motion, useMotionValue, useSpring, useTransform } from "framer-motion"
+import { motion, useMotionValue, useSpring, useTransform, useMotionTemplate } from "framer-motion"
 import type { ReactNode, MouseEvent } from "react"
 import { cn } from "../../lib/utils"
 
@@ -16,6 +16,10 @@ export default function TiltCard({ children, className }: TiltCardProps) {
 
     const rotateX = useTransform(mouseY, [-0.5, 0.5], ["15deg", "-15deg"])
     const rotateY = useTransform(mouseX, [-0.5, 0.5], ["-15deg", "15deg"])
+
+    // Holographic Sheen Gradient
+    const sheenX = useTransform(mouseX, [-0.5, 0.5], ["0%", "100%"])
+    const sheenY = useTransform(mouseY, [-0.5, 0.5], ["0%", "100%"])
 
     const handleMouseMove = (e: MouseEvent<HTMLDivElement>) => {
         const rect = e.currentTarget.getBoundingClientRect()
@@ -46,6 +50,15 @@ export default function TiltCard({ children, className }: TiltCardProps) {
             <div style={{ transform: "translateZ(50px)" }}>
                 {children}
             </div>
+            
+            {/* Holographic Sheen Layer */}
+            <motion.div 
+                className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-xl"
+                style={{
+                    background: useMotionTemplate`radial-gradient(circle at ${sheenX} ${sheenY}, rgba(255,255,255,0.15), transparent 60%)`,
+                    zIndex: 20
+                }}
+            />
         </motion.div>
     )
 }

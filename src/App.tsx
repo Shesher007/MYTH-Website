@@ -6,7 +6,10 @@ import FeatureBento from "./components/FeatureBento"
 import SystemSpec from "./components/SystemSpec"
 import DownloadDock from "./components/DownloadDock"
 import SmoothScroll from "./components/ui/SmoothScroll"
+import ReactiveGrid from "./components/ui/ReactiveGrid"
+import TacticalHUD from "./components/ui/TacticalHUD"
 import TitanTerminal from "./components/TitanTerminal"
+import ErrorBoundary from "./components/ErrorBoundary"
 
 function App() {
   const [isTerminalOpen, setIsTerminalOpen] = useState(false)
@@ -22,12 +25,13 @@ function App() {
   }, [])
 
   return (
-    <main className="min-h-screen bg-background text-foreground antialiased selection:bg-primary/30 relative">
-      <SmoothScroll />
+    <ErrorBoundary>
+      {!isTerminalOpen && <TacticalHUD />}
+      <main id="content" className="min-h-screen bg-background text-foreground antialiased selection:bg-primary/30 relative overflow-hidden">
+        <ReactiveGrid />
+        <SmoothScroll />
       <TitanTerminal isOpen={isTerminalOpen} onClose={() => setIsTerminalOpen(false)} />
 
-      {/* Film Grain / Noise Overlay */}
-      <div className="fixed inset-0 pointer-events-none z-[9999] opacity-[0.03] mix-blend-overlay bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
 
       <Helmet>
         <title>MYTH - Autonomous Sovereign Agent | Industrial Security Core</title>
@@ -59,6 +63,7 @@ function App() {
         </div>
       </footer>
     </main>
+    </ErrorBoundary>
   )
 }
 

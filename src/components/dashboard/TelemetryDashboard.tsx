@@ -18,7 +18,7 @@ export default function TelemetryDashboard() {
                         <Cpu className="w-4 h-4" /> CPU Load
                     </div>
                     <div className="h-24 bg-black/50 rounded-lg border border-white/5 relative overflow-hidden flex items-end px-1 gap-[1px]">
-                        {data.cpu.map((val, i) => (
+                        {data.cpu.map((val: number, i: number) => (
                             <motion.div
                                 key={i}
                                 className="flex-1 bg-accent/60"
@@ -39,7 +39,7 @@ export default function TelemetryDashboard() {
                         <Activity className="w-4 h-4" /> Memory Alloc
                     </div>
                     <div className="h-24 bg-black/50 rounded-lg border border-white/5 relative overflow-hidden flex items-end px-1 gap-[1px]">
-                        {data.ram.map((val, i) => (
+                        {data.ram.map((val: number, i: number) => (
                             <motion.div
                                 key={i}
                                 className="flex-1 bg-blue-500/60"
@@ -87,7 +87,7 @@ export default function TelemetryDashboard() {
                         <Shield className="w-4 h-4" /> Sentinel Log
                     </div>
                     <div className="h-24 bg-black/50 rounded-lg border border-white/5 p-2 font-mono text-[10px] overflow-hidden flex flex-col justify-end">
-                        {data.logs.slice(-5).map((log, i) => (
+                        {data.logs.slice(-5).map((log: string, i: number) => (
                             <motion.div
                                 key={i}
                                 initial={{ opacity: 0, x: -10 }}

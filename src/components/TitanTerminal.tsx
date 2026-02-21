@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react"
+import { X, ChevronRight, Cpu, Zap, ShieldCheck } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
-import { X, Terminal as TerminalIcon, Minimize2 } from "lucide-react"
 
 interface TerminalProps {
     isOpen: boolean
@@ -9,42 +9,44 @@ interface TerminalProps {
 
 export default function TitanTerminal({ isOpen, onClose }: TerminalProps) {
     const [input, setInput] = useState("")
+    const [load, setLoad] = useState(12)
     const [history, setHistory] = useState<string[]>([
-        "TitanOS v1.1.3 Shell",
-        "Type 'help' for available commands.",
-        "--------------------------------"
+        "MYTH [SOVEREIGN_CORE] v1.1.6",
+        "AUTH: AUTHORIZED_AGENT_772",
+        "STATUS: OPTIMAL",
+        "Neural handshake established...",
+        "------------------------------------"
     ])
     const bottomRef = useRef<HTMLDivElement>(null)
     const inputRef = useRef<HTMLInputElement>(null)
 
     useEffect(() => {
-        if (isOpen && bottomRef.current) {
-            bottomRef.current.scrollIntoView({ behavior: "smooth" })
-            inputRef.current?.focus()
+        if (isOpen && inputRef.current) {
+            setTimeout(() => inputRef.current?.focus(), 100)
         }
-    }, [history, isOpen])
+        const interval = setInterval(() => {
+            setLoad(Math.floor(Math.random() * 15) + 5)
+        }, 2000)
+        return () => clearInterval(interval)
+    }, [isOpen])
+
+    useEffect(() => {
+        bottomRef.current?.scrollIntoView({ behavior: "smooth" })
+    }, [history])
 
     const handleCommand = (cmd: string) => {
-        const trimmed = cmd.trim().toLowerCase()
+        const cleanCmd = cmd.trim().toLowerCase()
         let response = ""
 
-        switch (trimmed) {
+        switch (cleanCmd) {
             case "help":
-                response = "Available commands: help, status, scan, download, connect, clear, exit"
+                response = "TITAN_ROOT_CMD: help, status, sysinfo, clear, exit"
                 break
             case "status":
-                response = "System Operational. All systems nominal. CPU: 12% | RAM: 4GB | Network: Secure"
+                response = `[OK] SYSTEMS_READY\n[OK] DEPLOYMENT_READY\n[OK] ENCRYPTION_ACTIVE\n[OK] CORE_TEMP: 32C`
                 break
-            case "scan":
-                response = "Initiating heuristic scan... [||||||||||] 100% - No threats detected."
-                break
-            case "download":
-                window.location.href = "#downloads"
-                response = "Navigating to download sector..."
-                break
-            case "connect":
-                window.location.href = "#titan-viz" // Redirect to dashboard anchor
-                response = "Establishing connection to local dashboard..."
+            case "sysinfo":
+                response = "NUCLEUS: Titan-7\nVERSION: 1.1.6\nARCH: ARM64_SOVEREIGN\nUPTIME: 12:44:02"
                 break
             case "clear":
                 setHistory([])
@@ -52,72 +54,110 @@ export default function TitanTerminal({ isOpen, onClose }: TerminalProps) {
             case "exit":
                 onClose()
                 return
-            case "":
-                return
             default:
-                response = `Command not found: ${trimmed}`
+                response = `[!] UNKNOWN_IDENTIFIER: ${cleanCmd}`
         }
 
-        setHistory(prev => [...prev, `> ${cmd}`, response])
-    }
-
-    const handleKeyDown = (e: React.KeyboardEvent) => {
-        if (e.key === "Enter") {
-            handleCommand(input)
-            setInput("")
-        }
+        setHistory(prev => [...prev, `> ${cmd.toUpperCase()}`, response])
     }
 
     return (
         <AnimatePresence>
             {isOpen && (
-                <motion.div
-                    initial={{ opacity: 0, y: -20, scale: 0.95 }}
-                    animate={{ opacity: 1, y: 0, scale: 1 }}
-                    exit={{ opacity: 0, y: 20, scale: 0.95 }}
-                    transition={{ duration: 0.2 }}
-                    className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm"
+                <motion.div 
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm"
                 >
-                    <div className="w-full max-w-3xl bg-black/90 border border-primary/30 rounded-lg shadow-[0_0_50px_rgba(124,58,237,0.2)] overflow-hidden flex flex-col h-[60vh] font-mono text-sm">
-                        {/* Header */}
-                        <div className="flex items-center justify-between px-4 py-2 bg-white/5 border-b border-white/10">
-                            <div className="flex items-center gap-2 text-primary">
-                                <TerminalIcon className="w-4 h-4" />
-                                <span>Titan Terminal</span>
+                    <motion.div 
+                        initial={{ scale: 0.95, opacity: 0, filter: "blur(10px)" }}
+                        animate={{ scale: 1, opacity: 1, filter: "blur(0px)" }}
+                        exit={{ scale: 0.95, opacity: 0 }}
+                        className="w-full max-w-5xl h-[700px] bg-[#020202]/90 rounded-none border border-[#06b6d4]/30 flex flex-col overflow-hidden relative shadow-[0_0_80px_rgba(6, 182, 212,0.1)]"
+                    >
+                        {/* Industrial CRT Effect */}
+                        <div className="absolute inset-0 pointer-events-none z-50 opacity-[0.05] bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.1)_50%),linear-gradient(90deg,rgba(255,0,0,0.02),rgba(0,255,0,0.01),rgba(0,0,255,0.02))] bg-[length:100%_4px,2px_100%]" />
+                        
+                        {/* Enhanced Header HUD */}
+                        <div className="flex items-center justify-between px-6 py-5 bg-[#06b6d4]/20 border-b border-[#06b6d4]/20">
+                            <div className="flex items-center gap-10">
+                                <div className="flex items-center gap-3">
+                                    <div className="w-2 h-2 bg-[#06b6d4] rounded-full animate-pulse shadow-[0_0_8px_rgba(6, 182, 212,0.8)]" />
+                                    <span className="text-[11px] font-mono font-black text-[#06b6d4] tracking-[0.3em]">MYTH_TERMINAL</span>
+                                </div>
+                                <div className="hidden lg:flex items-center gap-8 text-[9px] font-mono text-[#06b6d4]/50">
+                                    <div className="flex flex-col gap-1">
+                                        <div className="flex items-center gap-2">
+                                            <Cpu className="w-3 h-3 text-[#06b6d4]/70" />
+                                            <span>CORE_USAGE</span>
+                                        </div>
+                                        <div className="w-24 h-1 bg-cyan-950 overflow-hidden">
+                                            <motion.div 
+                                                className="h-full bg-[#06b6d4]"
+                                                animate={{ width: `${load}%` }}
+                                            />
+                                        </div>
+                                    </div>
+                                    <div className="flex items-center gap-2">
+                                        <ShieldCheck className="w-3 h-3 text-green-500/70" />
+                                        <span>ENCRYPTION: AES_256</span>
+                                    </div>
+                                    <div className="flex items-center gap-2 text-[#06b6d4]">
+                                        <Zap className="w-3 h-3" />
+                                        <span>BANDWIDTH: MAX</span>
+                                    </div>
+                                </div>
                             </div>
-                            <div className="flex items-center gap-2">
-                                <button onClick={onClose} className="hover:text-white text-muted-foreground transition-colors">
-                                    <Minimize2 className="w-4 h-4" />
-                                </button>
-                                <button onClick={onClose} className="hover:text-red-500 text-muted-foreground transition-colors">
-                                    <X className="w-4 h-4" />
-                                </button>
-                            </div>
+                            <button 
+                                onClick={onClose}
+                                className="p-2 hover:bg-red-500/20 rounded-sm transition-all border border-transparent hover:border-red-500/50"
+                            >
+                                <X className="w-4 h-4 text-[#06b6d4]/40 hover:text-red-400" />
+                            </button>
                         </div>
 
-                        {/* Output */}
-                        <div className="flex-1 p-4 overflow-y-auto space-y-2 text-green-400/90 custom-scrollbar">
+                        {/* Interactive Command Stream */}
+                        <div className="flex-1 p-10 overflow-y-auto font-mono text-xs md:text-sm space-y-4 custom-scrollbar relative bg-[radial-gradient(circle_at_50%_50%,rgba(6, 182, 212,0.02),transparent)]">
                             {history.map((line, i) => (
-                                <div key={i} className="break-words">{line}</div>
+                                <motion.div 
+                                    initial={{ opacity: 0, x: -5 }}
+                                    animate={{ opacity: 1, x: 0 }}
+                                    key={i} 
+                                    className={line.startsWith(">") ? "text-[#06b6d4] mt-6" : "text-cyan-100/60 leading-relaxed"}
+                                >
+                                    {line}
+                                </motion.div>
                             ))}
                             <div ref={bottomRef} />
                         </div>
 
-                        {/* Input */}
-                        <div className="p-4 bg-white/5 border-t border-white/10 flex items-center gap-2 text-green-400">
-                            <span>$</span>
+                        {/* Tactical Input Console */}
+                        <form 
+                            onSubmit={(e) => {
+                                e.preventDefault()
+                                if (input.trim()) {
+                                    handleCommand(input)
+                                    setInput("")
+                                }
+                            }}
+                            className="p-8 bg-cyan-950/30 border-t border-[#06b6d4]/20 flex items-center gap-4 group"
+                        >
+                            <span className="text-[#06b6d4] font-bold group-focus-within:animate-ping">$</span>
+                            <ChevronRight className="w-4 h-4 text-[#06b6d4]/60" />
                             <input
                                 ref={inputRef}
                                 type="text"
                                 value={input}
                                 onChange={(e) => setInput(e.target.value)}
-                                onKeyDown={handleKeyDown}
-                                className="flex-1 bg-transparent border-none outline-none text-green-400 placeholder-green-800"
-                                placeholder="Enter command..."
-                                autoFocus
+                                className="flex-1 bg-transparent border-none outline-none font-mono text-sm text-cyan-50 placeholder:text-cyan-900 uppercase tracking-[0.2em]"
+                                placeholder="WAITING_FOR_INPUT..."
                             />
-                        </div>
-                    </div>
+                            <div className="hidden md:block text-[8px] font-mono text-[#06b6d4]/20">
+                                ENTER_TO_EXECUTE
+                            </div>
+                        </form>
+                    </motion.div>
                 </motion.div>
             )}
         </AnimatePresence>

@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react"
 import { Apple, Monitor, Terminal, Globe } from "lucide-react"
 import { cn } from "../lib/utils"
+// @ts-ignore
 import { CONFIG } from "../config"
 
 type OS = "Windows" | "macOS" | "Linux" | "Other"
@@ -101,7 +102,7 @@ export default function DownloadDock() {
         <section id="downloads" className="py-24 bg-black/40">
             <div className="container px-6">
                 <div className="text-center mb-16">
-                    <span className="text-accent font-medium tracking-wider uppercase text-sm">Universal Strike</span>
+                    <span className="text-accent font-medium tracking-wider uppercase text-sm">Industrial-Grade Sovereign Security Agent</span>
                     <h2 className="text-3xl md:text-5xl font-bold mt-2">
                         Native. <span className="text-primary">Universal.</span> Strike-Ready.
                     </h2>

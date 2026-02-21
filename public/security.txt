@@ -1,0 +1,7 @@
+# MYTH SECURITY POLICY
+Contact: None
+Expires: 2027-12-31T23:59:59Z
+Encryption: https://github.com/hasan0004/MYTH/pgp-key.asc
+Preferred-Languages: en
+Policy: https://github.com/hasan0004/MYTH/security/policy
+Canonical: https://github.com/hasan0004/MYTH/.well-known/security.txt

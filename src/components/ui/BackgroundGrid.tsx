@@ -12,7 +12,6 @@ export default function BackgroundGrid() {
 
         let width = canvas.width = window.innerWidth
         let height = canvas.height = window.innerHeight
-        let offset = 0
 
         const draw = () => {
             if (!ctx) return
@@ -21,7 +20,7 @@ export default function BackgroundGrid() {
             ctx.fillStyle = 'rgba(0, 0, 0, 0.1)'
             ctx.fillRect(0, 0, width, height)
 
-            ctx.strokeStyle = '#7c3aed' // Primary violet
+            ctx.strokeStyle = '#7c3aed'
             ctx.lineWidth = 1
             ctx.beginPath()
 
@@ -36,15 +35,6 @@ export default function BackgroundGrid() {
                 ctx.lineTo((x - width / 2) * 4 + width / 2, height)
             }
 
-            // Horizontal lines (moving)
-            offset = (offset + 0.5) % gridSize
-            for (let y = horizon; y <= height; y += gridSize / 2) {
-                const perspectiveY = y + offset
-                if (perspectiveY > height) continue
-
-                ctx.moveTo(0, perspectiveY)
-                ctx.lineTo(width, perspectiveY)
-            }
 
             ctx.stroke()
 

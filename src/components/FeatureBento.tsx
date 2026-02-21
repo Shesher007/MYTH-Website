@@ -48,7 +48,7 @@ const features = [
 
 export default function FeatureBento() {
     return (
-        <section id="capabilities" className="py-24 container px-6 relative z-10">
+        <section id="capabilities" className="py-24 container px-6 relative z-10 mx-auto">
             <div className="mb-16">
                 <span className="text-accent font-medium tracking-wider uppercase text-sm">Architecture</span>
                 <h2 className="text-3xl md:text-5xl font-bold mt-2">
@@ -61,13 +61,17 @@ export default function FeatureBento() {
                 {features.map((feature, i) => (
                     <TiltCard
                         key={i}
-                        className={`${feature.className} glass-panel p-8 rounded-xl border border-white/5 hover:border-accent/40 group overflow-hidden`}
+                        className={`${feature.className} glass-panel p-8 rounded-xl border border-white/5 hover:border-accent/40 group overflow-hidden relative`}
                     >
                         <div className={`absolute inset-0 ${feature.bg} opacity-50 group-hover:opacity-100 transition-opacity duration-500`} />
+                        
+                        {/* Scanning Effect */}
+                        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-accent/5 to-transparent opacity-0 group-hover:opacity-100 translate-y-[-100%] group-hover:translate-y-[100%] transition-transform duration-1000 bg-no-repeat w-full h-full pointer-events-none z-0" />
 
                         <div className="relative z-10 flex flex-col h-full">
-                            <div className="mb-6 p-3 bg-white/5 w-fit rounded-lg border border-white/10 group-hover:border-accent/50 group-hover:bg-accent/10 transition-colors">
-                                <feature.icon className="h-8 w-8 text-primary group-hover:text-accent transition-colors" />
+                            <div className="mb-6 p-3 bg-white/5 w-fit rounded-lg border border-white/10 group-hover:border-accent/50 group-hover:bg-accent/10 transition-colors relative overflow-hidden">
+                                <div className="absolute inset-0 bg-accent/20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 delay-100" />
+                                <feature.icon className="h-8 w-8 text-primary group-hover:text-accent transition-colors relative z-10" />
                             </div>
                             <h3 className="text-xl font-bold mb-3 group-hover:text-white transition-colors">{feature.title}</h3>
                             <p className="text-muted-foreground leading-relaxed flex-grow">
