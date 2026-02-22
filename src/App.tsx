@@ -35,10 +35,10 @@ function App() {
 
       <Helmet>
         <title>MYTH - Autonomous Sovereign Agent | Industrial Security Core</title>
-        <meta name="description" content="The professional-grade autonomous AI agent for offensive and defensive security. 672+ tactical tools orchestrated locally. 100% Offline. Zero Cloud Dependencies." />
+        <meta name="description" content="The professional-grade autonomous AI agent for offensive and defensive security. 681+ tactical tools orchestrated locally. 100% Offline. Zero Cloud Dependencies." />
         <meta name="keywords" content="cybersecurity, autonomous agent, offensive security, red team, soc, ai, local llm, myth, titan" />
         <meta property="og:title" content="MYTH - Autonomous Sovereign Agent" />
-        <meta property="og:description" content="Deploy the Titan Edition. 672+ tactical tools orchestrated by a sovereign local AI. No cloud. No leaks." />
+        <meta property="og:description" content="Deploy the Titan Edition. 681+ tactical tools orchestrated by a sovereign local AI. No cloud. No leaks." />
         <meta property="og:type" content="website" />
         <meta name="theme-color" content="#7c3aed" />
       </Helmet>

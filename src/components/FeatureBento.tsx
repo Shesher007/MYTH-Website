@@ -3,7 +3,7 @@ import TiltCard from "./ui/TiltCard"
 
 const features = [
     {
-        title: "672+ Tactical Tools Orchestrated",
+        title: "681+ Tactical Tools Orchestrated",
         description: "MYTH doesn't just run tools. It reasons about them. The autonomous engine chains findings from Nmap, Nuclei, and Metasploit into single, coherent mission reports.",
         icon: Swords,
         className: "md:col-span-2",

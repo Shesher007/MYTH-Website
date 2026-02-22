@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-# Sitemap: https://github.com/hasan0004/MYTH/sitemap.xml
+# Sitemap: https://github.com/Shesher007/MYTH/sitemap.xml

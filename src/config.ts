@@ -9,8 +9,8 @@ export const CONFIG = {
     appVersion: "1.1.6",
     
     // URLs
-    releaseUrl: "https://github.com/shesher010/MYTH/releases/download/v1.1.6",
-    repoUrl: "https://github.com/shesher010/MYTH",
+    releaseUrl: "https://github.com/Shesher007/MYTH/releases/download/v1.1.6",
+    repoUrl: "https://github.com/Shesher007/MYTH",
     docsUrl: "https://docs.myth-tools.com",
     
     // Artifacts
